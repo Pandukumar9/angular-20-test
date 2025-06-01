@@ -1,0 +1,55 @@
+<!-- {{ 'name' in group ? group.name : group.id }} -->
+{{ 'description' in group ? group.description : '' }}
+<!-- {{ 'createdAt' in group ? (group.createdAt | date: 'medium') : '' }}
+{{ 'updatedAt' in group ? (group.updatedAt | date: 'medium') : '' }}
+{{ 'members' in group ? group.members.length : 0 }}
+{{ 'admins' in group ? group.admins.length : 0 }} -->
+{{ 'isPublic' in group ? (group.isPublic ? 'Yes' : 'No') : '' }}
+{{ 'isPrivate' in group ? (group.isPrivate ? 'Yes' : 'No') : '' }}
+{{ 'isProtected' in group ? (group.isProtected ? 'Yes' : 'No') : '' }}
+
+
+{{ 'user' in group }}
+
+@if('user' in group){
+
+}
+
+<p [hidden]="'user' in group">
+
+</p>
+<!-- ----------------------------------- -->
+{{ propName in group }}
+
+@if(propName in group){
+
+}
+
+<p [hidden]="propName in group">
+
+</p>
+
+{{ 'name' in group }}
+<!-- true -->
+{{ 'default' in group }}
+<!-- true -->
+<hr>
+{{ consoleGreeting `Hi, ${user} from ${group1} group!` }}
+<br>
+{{ consoleGreeting `Hi, ${getName()}!` }}
+<br>
+{{ consoleGreeting `Hi, ${getName()} + ' and friends'!` }}
+<br>
+{{ consoleGreeting `/api/key/${getId() * 10 + 1}/operation` }}
+<br>
+{{ consoleGreeting `Hi, ${getName() | titlecase}!` }}
+<br>
+{{ consoleGreeting `Hi, ${getfname()} ${getlname()}!` }}
+
+
+<img [src]="imageText`Group: ${group}`" alt="Image" width="200" height="200">
+
+
+<button appDynamicStyleDirective [primary]="true">Primary Button</button>
+<button appDynamicStyleDirective [primary]="false">Secondary Button</button>
+
