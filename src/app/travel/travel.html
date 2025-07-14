@@ -1,0 +1,38 @@
+<form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-6">
+      <label>From Location</label>
+      <input type="text" class="form-control" formControlName="from_location">
+    </div>
+    <div class="col-md-6">
+      <label>To Location</label>
+      <input type="text" class="form-control" formControlName="to_location">
+    </div>
+    <div class="col-md-6">
+      <label>Travel Date</label>
+      <input type="date" class="form-control" formControlName="travel_date">
+    </div>
+    <div class="col-md-6">
+      <label>Mode of Travel</label>
+      <select class="form-select" formControlName="mode">
+        <option>Car</option>
+        <option>Bus</option>
+        <option>Train</option>
+        <option>Flight</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label>Seats</label>
+      <input type="number" class="form-control" formControlName="seats">
+    </div>
+    <div class="col-md-6">
+      <label>Cost per Person</label>
+      <input type="number" class="form-control" formControlName="cost_per_person">
+    </div>
+    <div class="col-12">
+      <label>Description</label>
+      <textarea rows="3" class="form-control" formControlName="description"></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Post Travel</button>
+</form>

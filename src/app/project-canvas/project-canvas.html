@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Side Panel -->
+    <div class="col-md-3 bg-light p-3 border-end" style="height: 100vh;">
+      <h5 class="mb-4">Project Menu</h5>
+<ul class="nav flex-column nav-pills">
+  <!-- <li *ngFor="let useCase of useCases" class="nav-item"
+      *ngIf="currentProject?.useCaseIds.includes(useCase.id)">
+    <a class="nav-link" (click)="selectSection(useCase.name)" [class.active]="selectedSection === useCase.name">
+      {{ useCase.name }}
+    </a>
+  </li> -->
+</ul>
+    </div>
+
+
+
+    <!-- Main Content Area -->
+    <div class="col-md-9 p-4">
+      <!-- <ng-container [ngSwitch]="selectedSection">
+        <div *ngSwitchCase="'overview'">
+          <h3>📁 Project Overview</h3>
+          <p>Details about the project...</p>
+        </div>
+
+        <div *ngSwitchCase="'usecases'">
+          <h3>🧩 Use Cases</h3>
+          <p>List of use cases...</p>
+        </div>
+
+        <div *ngSwitchCase="'team'">
+          <h3>👥 Team Roles</h3>
+          <p>Assigned roles and members...</p>
+        </div>
+
+        <div *ngSwitchCase="'reports'">
+          <h3>📊 Reports</h3>
+          <p>Charts and project metrics...</p>
+        </div>
+
+        <div *ngSwitchDefault>
+          <p>Select an option from the left.</p>
+        </div>
+      </ng-container> -->
+      <ng-container [ngSwitch]="selectedSection">
+  <div *ngSwitchCase="'Userstory'">User Story Section</div>
+  <div *ngSwitchCase="'Testcases'">Testcases Section</div>
+  <!-- Add others... -->
+</ng-container>
+    </div>
+
+  </div>
+</div>

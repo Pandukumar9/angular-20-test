@@ -1,3 +1,19 @@
 <app-account></app-account>
 
 <app-user></app-user>
+
+<app-showlessmore></app-showlessmore>
+
+<app-travel></app-travel>
+
+<app-vizard-dashboard></app-vizard-dashboard>
+
+<router-outlet></router-outlet>
+
+<!-- <button class="btn btn-primary" (click)="gotobenguluru()">Go to benguluru</button> -->
+
+
+<a class="btn btn-primary" routerLink="/benguluru" routerLinkActive="active" >Go to benguluru</a>
+
+
+<app-custom-summernote [(ngModel)]="content" (contentChanged)="onContentChange($event)" [height]="250" placeholder="Write here..."></app-custom-summernote>

@@ -1,0 +1,78 @@
+<div class="container py-4">
+
+  <!-- Create Client Form -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">Create Client</div>
+    <div class="card-body">
+      <form (ngSubmit)="addClient()" #clientForm="ngForm">
+        <div class="row g-3">
+          <div class="col-md-5">
+            <input [(ngModel)]="name" name="name" required class="form-control" placeholder="Name" />
+          </div>
+          <div class="col-md-5">
+            <input [(ngModel)]="email" name="email" required type="email" class="form-control" placeholder="Email" />
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-success w-100" [disabled]="!clientForm.form.valid">Add Client</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <ul class="nav nav-tabs mb-3" id="clientTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
+        All Clients
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="recent-tab" data-bs-toggle="tab" data-bs-target="#recent" type="button" role="tab">
+        Recently Created
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="liked-tab" data-bs-toggle="tab" data-bs-target="#liked" type="button" role="tab">
+        Liked Clients
+      </button>
+    </li>
+  </ul>
+
+  <!-- Tabs Content -->
+  <div class="tab-content" id="clientTabsContent">
+    <!-- All Clients Tab -->
+    <div class="tab-pane fade show active" id="all" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <ng-container *ngFor="let client of clients">
+          <div class="col">
+            <app-client-card [client]="client" (like)="toggleLike(client)" (viewProjects)="goToProjects($event)"></app-client-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Recently Created Tab -->
+    <div class="tab-pane fade" id="recent" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <ng-container *ngFor="let client of recentClients">
+          <div class="col">
+            <app-client-card [client]="client" (like)="toggleLike(client)" (viewProjects)="goToProjects($event)"></app-client-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Liked Clients Tab -->
+    <div class="tab-pane fade" id="liked" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <ng-container *ngFor="let client of likedClients">
+          <div class="col">
+            <app-client-card [client]="client" (like)="toggleLike(client)" (viewProjects)="goToProjects($event)"></app-client-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

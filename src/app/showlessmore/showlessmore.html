@@ -1,0 +1,12 @@
+@if (!isShowMore) {
+    <p class="show-less-more-text">
+        {{ text | slice: 0: minChartoShow }}...
+    </p>
+} @else {
+    <p class="show-less-more-text">
+        {{ text }}
+    </p>
+}
+<span class="show-less-more-link" (click)="isShowMore = !isShowMore">
+    {{ isShowMore ? 'Show less' : 'Show more' }}
+</span>
